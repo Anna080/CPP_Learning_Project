@@ -1,0 +1,34 @@
+#include "aircraft_factory.hpp"
+
+#include <cassert>
+
+std::unique_ptr<Aircraft> AircraftFactory::create_aircraft(const AircraftType& type, Tower& t)
+{
+    std::string flight_number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+    const float angle         = (rand() % 1000) * 2 * 3.141592f / 1000.f; 
+    const Point3D start       = Point3D { std::sin(angle), std::cos(angle), 0 } * 3 + Point3D { 0, 0, 2 };
+    const Point3D direction   = (-start).normalize();
+   
+    while (name_already_attribued.find(flight_number) != name_already_attribued.end())
+    {
+        flight_number = airlines[std::rand() % 8] + std::to_string(1000 + (rand() % 9000));
+    }
+    name_already_attribued.insert(flight_number);
+    return std::make_unique<Aircraft>(type, flight_number, start, direction, t); 
+}
+
+std::unique_ptr<Aircraft> AircraftFactory::create_random_aircraft(Tower& t)
+{
+    return create_aircraft(aircraft_types[rand() % 3], t);
+}
+
+void AircraftFactory::print_number_aircraft(int n)
+{
+    assert(n >= 0 && n <= 7 && "n should be in [0, 7]");
+    const auto& airline = airlines[n];
+    int nb_airlines =
+        std::count_if(name_already_attribued.begin(), name_already_attribued.end(),
+                      [&airline](const std::string& current) { return current.rfind(airline, 0) == 0; });
+
+    std::cout << airline << " : " << nb_airlines << std::endl;
+}

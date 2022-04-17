@@ -7,6 +7,9 @@ Chaque avion créé est ensuite placé dans les files `GL::display_queue` et `GL
 
 Imaginez et décrivez ce que vous devriez faire si vous souhaitiez accéder à l'avion ayant le numéro de vol "AF1250".
 
+```
+On aurait recherché parmi tous les objets de move_queue ceux qui sont des avions puis parmi ceux là celui qui correspond au vol AF1250.
+```
 ---
 
 ## Objectif 1 - Référencement des avions
@@ -23,6 +26,16 @@ Réfléchissez aux pour et contre de chacune de ces options.
 
 Pour le restant de l'exercice, vous partirez sur le premier choix.
 
+```
+Créer une nouvelle classe :
+     - Pour   : clarifie l'ownership, limite les responsabilités, augmente la lisibilité du code, facilite le debug
+     - Contre : on doit lui envoyer toutes les informations sur les avions alors que ces informations sont déjà stocker dans d'autres classe, il y a donc de la duplication que code
+Donner ce rôle à une classe existante :
+     - Pour   : il n'y a pas de duplication de code. Ceci pourrait être gérer par la classe Aircraft
+     - Contre : violation du single responsability principle
+```
+
+
 ### B - Déterminer le propriétaire de chaque avion
 
 Vous allez introduire une nouvelle liste de références sur les avions du programme.
@@ -30,9 +43,27 @@ Il serait donc bon de savoir qui est censé détruire les avions du programme, a
 
 Répondez aux questions suivantes :
 1. Qui est responsable de détruire les avions du programme ? (si vous ne trouvez pas, faites/continuez la question 4 dans TASK_0)
+
+```
+La méthode timer dans opengl_interface s'occupe d'appeler toutes les fonctions-membres des objets DynamicObject et donc de la destruction des avions du programme
+```
+
 2. Quelles sont les listes qui contiennent une référence sur un avion au moment où il doit être détruit ?
+
+```
+Les listes qui contiennent une référence sur un avion au moment où il doit être détruit sont : la move_queue et la display_queue.
+```
 3. Comment fait-on pour supprimer la référence sur un avion qui va être détruit dans ces deux structures ?
 
+```
+Pour retirer un avion de la display_queue, on utilise le destructeur de Displayable. La référence de l'avion va donc être retirée automatiquement.
+```
+
+4. Pourquoi n'est-il pas très judicieux d'essayer d'appliquer la même chose pour votre AircraftManager ?
+
+```
+Il n'est pas judicieux d'essayer d'appliquer lâ même chose pour notre AircraftManager car celui ci contient un unique_ptr<Aircraft>, qui libèrera la ressource au moment du erase.
+```
 Pour simplifier le programme, l'`AircraftManager` aura l'ownership des avions, c'est-à-dire que c'est lui qui s'occupera de les faire disparaître du programme, et non plus la fonction `timer`. Il aura également la responsabilité de les faire bouger.
 
 ### C - C'est parti !
@@ -75,6 +106,10 @@ Vous lui ajouterez un constructeur dont le rôle sera d'appeler les fonctions d'
 
 Vous pouvez maintenant ajoutez un attribut `context_initializer` de type `ContextInitializer` dans la classe `TowerSimulation`.
 A quelle ligne faut-il définir `context_initializer` dans `TowerSimulation` pour s'assurer que le constructeur de `context_initializer` est appelé avant celui de `factory` ?
+
+```
+Il faut définir context_initializer avant aircraft_factory.
+```
 
 Refactorisez le restant du code pour utiliser votre factory.
 Vous devriez du coup pouvoir supprimer les variables globales `airlines` et `aircraft_types`.
