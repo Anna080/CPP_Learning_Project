@@ -33,7 +33,7 @@ unsigned int Aircraft::get_speed_octant() const
         const Point3D norm_speed { speed * (1.0f / speed_len) };
         const float angle =
             (norm_speed.y() > 0) ? 2.0f * 3.141592f - std::acos(norm_speed.x()) : std::acos(norm_speed.x());
-        // partition into NUM_AIRCRAFT_TILES equal pieces
+        
         return (static_cast<int>(std::round((angle * NUM_AIRCRAFT_TILES) / (2.0f * 3.141592f))) + 1) %
                NUM_AIRCRAFT_TILES;
     }
@@ -43,15 +43,12 @@ unsigned int Aircraft::get_speed_octant() const
     }
 }
 
-// when we arrive at a terminal, signal the tower
 void Aircraft::arrive_at_terminal()
 {
-    // we arrived at a terminal, so start servicing
     control.arrived_at_terminal(*this);
     is_at_terminal = true;
 }
 
-// deploy and retract landing gear depending on next waypoints
 void Aircraft::operate_landing_gear()
 {
     if (waypoints.size() > 1u)
@@ -59,7 +56,6 @@ void Aircraft::operate_landing_gear()
         const auto it            = waypoints.begin();
         const bool ground_before = it->is_on_ground();
         const bool ground_after  = std::next(it)->is_on_ground();
-        // deploy/retract landing gear when landing/lifting-off
         if (ground_before && !ground_after)
         {
             std::cout << flight_number << " lift off" << std::endl;
@@ -76,10 +72,9 @@ void Aircraft::operate_landing_gear()
     }
 }
 
-template <bool front>
-void Aircraft::add_waypoint(const Waypoint& wp)
+template <const bool front> void Aircraft::add_waypoint(const Waypoint& wp)
 {
-    if constexpr (front)
+    if (front)
     {
         waypoints.push_front(wp);
     }
@@ -114,10 +109,7 @@ bool Aircraft::move()
     if (!is_at_terminal)
     {
         turn_to_waypoint();
-        // move in the direction of the current speed
         pos += speed;
-
-        // if we are close to our next waypoint, stike if off the list
         if (!waypoints.empty() && distance_to(waypoints.front()) < DISTANCE_THRESHOLD)
         {
             if (waypoints.front().is_at_terminal())
@@ -141,7 +133,10 @@ bool Aircraft::move()
         }
         else
         {
-            // if we are in the air, but too slow, then we will sink!
+            if (--fuel == 0)
+            {
+                throw AircraftCrash { flight_number + " ran out of fuel" };
+            }
             const float speed_len = speed.length();
             if (speed_len < SPEED_THRESHOLD)
             {
@@ -170,3 +165,4 @@ void Aircraft::display() const
 {
     type.texture.draw(project_2D(pos), { PLANE_TEXTURE_DIM, PLANE_TEXTURE_DIM }, get_speed_octant());
 }
+

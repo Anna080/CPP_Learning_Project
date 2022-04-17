@@ -237,6 +237,7 @@ CMakeFiles/tower.dir/src/tower.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/unordered_map \
@@ -248,6 +249,9 @@ CMakeFiles/tower.dir/src/tower.cpp.o: \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/displayable.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/dynamic_object.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/unordered_set \
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/aircraft_manager.hpp \
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/aircraft.hpp \
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/aircraft_types.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/texture.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/../img/image.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/../img/../config.hpp \
@@ -272,10 +276,8 @@ CMakeFiles/tower.dir/src/tower.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tree \
   /opt/homebrew/include/GL/glut.h \
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/img/image.hpp \
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/config.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/airport_type.hpp \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/runway.hpp \
-  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/terminal.hpp \
-  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/aircraft.hpp \
-  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/aircraft_types.hpp \
-  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/img/image.hpp \
-  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/config.hpp
+  /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/terminal.hpp

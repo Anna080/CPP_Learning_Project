@@ -22,6 +22,9 @@ for (const auto& wp: control.get_instructions(*this))
 
 2. Modifiez `Aircraft::add_waypoint` afin que l'évaluation du flag ait lieu à la compilation et non à l'exécution.
 Que devez-vous changer dans l'appel de la fonction pour que le programme compile ?
+```
+Il faut que front soit const.
+```
 
 3. **BONUS** En utilisant [GodBolt](https://godbolt.org/), comparez le code-assembleur généré par les fonctions suivantes:
 <table border="0">

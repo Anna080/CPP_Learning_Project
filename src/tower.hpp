@@ -37,5 +37,6 @@ public:
     WaypointQueue get_instructions(Aircraft& aircraft);
     WaypointQueue reserve_terminal(Aircraft& aircraft);
     void arrived_at_terminal(const Aircraft& aircraft);
+    void service_completed(Aircraft& aircraft);
 };
 

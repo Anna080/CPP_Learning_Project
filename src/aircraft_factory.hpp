@@ -20,7 +20,7 @@ private:
     };
 
 public:
-    std::unique_ptr<Aircraft> create_aircraft(const AircraftType& type, Tower& t);
-    std::unique_ptr<Aircraft> create_random_aircraft(Tower& t);
-    void print_number_aircraft(int n);
+    std::unique_ptr<Aircraft> create_aircraft(const AircraftType& type, Tower& t) const;
+    std::unique_ptr<Aircraft> create_random_aircraft(Tower& t) const;
+    void print_number_aircraft(int n) const;
 };

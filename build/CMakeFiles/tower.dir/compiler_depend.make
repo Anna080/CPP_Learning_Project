@@ -245,6 +245,7 @@ CMakeFiles/tower.dir/src/GL/opengl_interface.cpp.o: ../src/GL/opengl_interface.c
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   ../src/GL/displayable.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector \
   ../src/GL/dynamic_object.hpp \
@@ -518,6 +519,7 @@ CMakeFiles/tower.dir/src/aircraft.cpp.o: ../src/aircraft.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/math.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   ../src/GL/dynamic_object.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/unordered_set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__hash_table \
@@ -1045,6 +1047,7 @@ CMakeFiles/tower.dir/src/main.cpp.o: ../src/main.cpp \
   ../src/geometry.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   /opt/homebrew/include/GL/freeglut.h \
   /opt/homebrew/include/GL/freeglut_std.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \
@@ -1304,6 +1307,7 @@ CMakeFiles/tower.dir/src/tower.cpp.o: ../src/tower.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bsd_locale_defaults.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/bitset \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__bit_reference \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/deque \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/unordered_map \
@@ -1315,6 +1319,9 @@ CMakeFiles/tower.dir/src/tower.cpp.o: ../src/tower.cpp \
   ../src/GL/displayable.hpp \
   ../src/GL/dynamic_object.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/unordered_set \
+  ../src/aircraft_manager.hpp \
+  ../src/aircraft.hpp \
+  ../src/aircraft_types.hpp \
   ../src/GL/texture.hpp \
   ../src/img/image.hpp \
   ../src/config.hpp \
@@ -1339,13 +1346,11 @@ CMakeFiles/tower.dir/src/tower.cpp.o: ../src/tower.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__tree \
   /opt/homebrew/include/GL/glut.h \
+  ../src/img/image.hpp \
+  ../src/config.hpp \
   ../src/airport_type.hpp \
   ../src/runway.hpp \
-  ../src/terminal.hpp \
-  ../src/aircraft.hpp \
-  ../src/aircraft_types.hpp \
-  ../src/img/image.hpp \
-  ../src/config.hpp
+  ../src/terminal.hpp
 
 CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/tower_sim.cpp \
   ../src/tower_sim.hpp \
@@ -1606,6 +1611,7 @@ CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/tower_sim.cpp \
   ../src/geometry.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   /opt/homebrew/include/GL/freeglut.h \
   /opt/homebrew/include/GL/freeglut_std.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \
@@ -1849,6 +1855,8 @@ CMakeFiles/tower.dir/src/tower_sim.cpp.o: ../src/tower_sim.cpp \
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/sys/_types/_rsize_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/string.h:
+
+/Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/string.h:
 

@@ -18,4 +18,5 @@ public:
 
     int get_required_fuel() const;
     int get_crashed_aircraft() const { return crashed_aircraft; };
+    void print_crashed_aircrafts() const;
 };

@@ -1,5 +1,4 @@
 #include "aircraft_manager.hpp"
-
 #include "aircraft_crash.hpp"
 #include "aircraft_factory.hpp"
 
@@ -66,3 +65,16 @@ void print_crashed_aircrafts() const
     {
         std::cout << "So far, " << crashed_aircrafts << " aircrafts crashed into the ground" << std::endl;
     }
+
+int AircraftManager::get_required_fuel() const
+{
+    return std::accumulate(aircrafts.begin(), aircrafts.end(), 0u,
+                           [](unsigned int acc, const std::unique_ptr<Aircraft>& cur)
+                           {
+                               if (cur->has_served() || !cur->is_low_on_fuel())
+                               {
+                                   return acc;
+                               }
+                               return acc + 3000 - cur->fuel_level();
+                           });
+}

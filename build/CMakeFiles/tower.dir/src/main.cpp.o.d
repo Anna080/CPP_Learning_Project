@@ -258,6 +258,7 @@ CMakeFiles/tower.dir/src/main.cpp.o: \
   /Users/annadiaw/Documents/Etudes/M1/C++/CPP_Learning_Project/src/GL/../geometry.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/array \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iostream \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/numeric \
   /opt/homebrew/include/GL/freeglut.h \
   /opt/homebrew/include/GL/freeglut_std.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/OpenGL.framework/Headers/gl.h \

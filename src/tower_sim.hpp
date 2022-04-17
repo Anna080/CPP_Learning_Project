@@ -28,7 +28,7 @@ private:
     AircraftManager manager {};
     AircraftFactory factory {};
 
-    void create_random_aircraft();
+    void create_random_aircraft() const;
 
     void create_keystrokes() const;
     void display_help() const;

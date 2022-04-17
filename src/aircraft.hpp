@@ -21,28 +21,18 @@ private:
     bool landing_gear_deployed = false; // is the landing gear deployed?
     bool is_at_terminal        = false;
     bool fpass                 = true;
+    int fuel                   = 150 + std::rand() % 2850;
 
     bool is_circling() const;
     bool has_terminal() const;
 
-    // turn the aircraft to arrive at the next waypoint
-    // try to facilitate reaching the waypoint after the next by facing the
-    // right way to this end, we try to face the point Z on the line spanned by
-    // the next two waypoints such that Z's distance to the next waypoint is
-    // half our distance so: |w1 - pos| = d and [w1 - w2].normalize() = W and Z
-    // = w1 + W*d/2
     void turn_to_waypoint();
     void turn(Point3D direction);
 
-    // select the correct tile in the plane texture (series of 8 sprites facing
-    // [North, NW, W, SW, S, SE, E, NE])
     unsigned int get_speed_octant() const;
-    // when we arrive at a terminal, signal the tower
     void arrive_at_terminal();
-    // deploy and retract landing gear depending on next waypoints
     void operate_landing_gear();
-    template <bool front>
-    void add_waypoint(const Waypoint& wp);
+    template <const bool front> void add_waypoint(const Waypoint& wp);
     bool is_on_ground() const { return pos.z() < DISTANCE_THRESHOLD; }
     float max_speed() const { return is_on_ground() ? type.max_ground_speed : type.max_air_speed; }
 
@@ -67,6 +57,20 @@ public:
 
     void display() const override;
     bool move() override;
+    int fuel_level() const { return fuel; }
+    bool is_low_on_fuel() const { return fuel < 200; }
+    bool has_served() const { return !fpass; };
+
+    void refill(int& fuel_stock)
+    {
+        assert(fuel_stock);
+        auto needed_fuel = std::min(3000 - fuel, fuel_stock);
+        fuel += needed_fuel;
+        fuel_stock -= needed_fuel;
+        std::cout << flight_number << " got refilled using " << needed_fuel << "L of fuel" << std::endl;
+        assert(fuel_stock >= 0);
+        assert(fuel > 0);
+    }
 
     friend class Tower;
 };
