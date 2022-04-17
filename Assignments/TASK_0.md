@@ -38,7 +38,7 @@ Quelles informations s'affichent dans la console ?
 Ajoutez maintenant quatre avions d'un coup dans la simulation.
 Que fait chacun des avions ?
 
-````
+```
 Les 3 avions suivent le processus décrit ci-dessus et le 4e vole en attendant qu'un terminal se libère. Lorsque le 4e avion quitte la piste, les 3 y reviennent et ainsi de suite
 ```
 
