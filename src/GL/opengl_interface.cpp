@@ -71,11 +71,14 @@ void display(void)
     glutSwapBuffers();
 }
 
+void toggle_pause(){
+    pause = !pause;
+}
+
 void timer(const int step)
 {
-    for (auto& item : move_queue)
-    {
-        item->move();
+    if (!pause) {
+        std::for_each(move_queue.begin(), move_queue.end(), [](auto movable) { movable->move(); });
     }
     glutPostRedisplay();
     glutTimerFunc(1000u / ticks_per_sec, timer, step + 1);

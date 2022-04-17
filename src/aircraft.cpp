@@ -76,9 +76,10 @@ void Aircraft::operate_landing_gear()
     }
 }
 
-void Aircraft::add_waypoint(const Waypoint& wp, const bool front)
+template <bool front>
+void Aircraft::add_waypoint(const Waypoint& wp)
 {
-    if (front)
+    if constexpr (front)
     {
         waypoints.push_front(wp);
     }
@@ -88,11 +89,26 @@ void Aircraft::add_waypoint(const Waypoint& wp, const bool front)
     }
 }
 
-void Aircraft::move()
+bool Aircraft::move()
 {
     if (waypoints.empty())
     {
-        waypoints = control.get_instructions(*this);
+        if (!fpass)
+        {
+            return true;
+        }
+        for (const auto& wp: control.get_instructions(*this))
+        {
+            add_waypoint<false>(wp);
+        }
+    }
+    if (is_circling() && waypoints.empty())
+    {
+        WaypointQueue new_path = control.reserve_terminal(*this);
+        if (!new_path.empty())
+        {
+            waypoints = std::move(new_path);
+        }
     }
 
     if (!is_at_terminal)
@@ -136,6 +152,18 @@ void Aircraft::move()
         // update the z-value of the displayable structure
         GL::Displayable::z = pos.x() + pos.y();
     }
+    return false;
+}
+
+bool Aircraft::has_terminal() const
+{
+
+    return !waypoints.empty() && waypoints.back().is_at_terminal();
+}
+
+bool Aircraft::is_circling() const
+{
+    return !fpass && !waypoints.empty() && !has_terminal();
 }
 
 void Aircraft::display() const
